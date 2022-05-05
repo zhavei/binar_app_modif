@@ -13,6 +13,7 @@ import com.utsman.binarapp1.R
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
+    //get bundle from main activity
     private val fragmentCount: Int by lazy {
         arguments?.getInt(MainActivity.FRAGMENT_COUNT) ?: 0
     }
@@ -34,7 +35,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         println("binar main fragment -------> onviewcreated")
-        Toast.makeText(context, "ini fragment nya...", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "fragment Home clicked...", Toast.LENGTH_SHORT).show()
 
         val tvFragment: TextView = view.findViewById(R.id.tv_fragment)
         tvFragment.text = "ini fragment home"

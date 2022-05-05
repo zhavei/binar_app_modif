@@ -52,8 +52,8 @@ class BinarOnboardingActivity : AppCompatActivity() {
                 bundle.putString("name", "binar")*/
 
                 val bundle = bundleOf(
-                    "name" to "binar",
-                    "age" to 21
+                    "name" to "azwar",
+                    "age" to 3
                 )
 
                 intent.putExtras(bundle)

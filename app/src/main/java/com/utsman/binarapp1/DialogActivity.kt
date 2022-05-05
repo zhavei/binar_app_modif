@@ -1,6 +1,7 @@
 package com.utsman.binarapp1
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Toast
@@ -32,15 +33,14 @@ class DialogActivity : AppCompatActivity() {
         dialogBuilderStandarAction.setTitle("dialog standar")
         dialogBuilderStandarAction.setMessage("ini dialog standar ya")
         dialogBuilderStandarAction.setCancelable(false)
-        dialogBuilderStandarAction.setPositiveButton("ok") { _, _ ->
-            Toast.makeText(this, "ok click", Toast.LENGTH_SHORT).show()
+        dialogBuilderStandarAction.setPositiveButton("OK") { _, _ ->
+            Toast.makeText(this, "ok click di klick", Toast.LENGTH_SHORT).show()
         }
         dialogBuilderStandarAction.setNegativeButton("Cancel") { dialogInterface, _ ->
-            Toast.makeText(this, "cancel click", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "cancel click di clikc", Toast.LENGTH_SHORT).show()
             dialogInterface.dismiss()
         }
         dialogBuilderStandarAction.setNeutralButton("netral") { _, _ ->
-
         }
 
         // ini dialog standar with action
@@ -60,9 +60,13 @@ class DialogActivity : AppCompatActivity() {
         dialogViewBinding.dialogText.text = "ini text dialog custom"
         dialogViewBinding.btnPositive.setOnClickListener {
             Toast.makeText(this, "ini positive button", Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
             dialogCustomLayout.dismiss()
         }
 
+        //dialog costum dengan fragment
         val customDialogFragment = CustomDialogFragment()
         customDialogFragment.isCancelable = false
 

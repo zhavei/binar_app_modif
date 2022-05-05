@@ -4,8 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F84A73"
+    android:background="#FF5722"
     tools:context=".ChatActivity">
+
+    <TextView
+        android:id="@+id/tv_chat_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chat Activity"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_chat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="21dp"
+        android:text="clik below to user activty"
+        app:layout_constraintBottom_toTopOf="@+id/tv_chat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tv_chat"
@@ -17,11 +38,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:text="below from hello world button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_chat" />
+
+    <TextView
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:id="@+id/tv_helloworld"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12dp"
+        android:text="ini chat activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
     <EditText
         android:id="@+id/edittext_chat_username"
         android:layout_width="200dp"
-        android:hint="masukan namamu"
         android:layout_height="wrap_content"
+        android:hint="masukan namamu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,9 +75,22 @@
         android:id="@+id/btn_ok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="OK"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="25dp"
+        android:text="OK kirim text"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chat_username" />
+        app:layout_constraintTop_toBottomOf="@+id/edittext_chat_username"
+        app:layout_constraintVertical_bias="0.476" />
+
+    <Button
+        android:id="@+id/button_bundle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:text="button bundle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_chat_username"
+        app:layout_constraintVertical_bias="0.476" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

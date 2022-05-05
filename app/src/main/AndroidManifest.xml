@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BinarApp1">
         <activity
+            android:name=".bundleActivity.ReceiveBundleActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChatActivity"
             android:exported="false" />
         <activity
@@ -21,10 +24,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".BinarOnboardingActivity"/>
-        <activity android:name=".UserActivity"/>
-        <activity android:name=".DialogActivity"/>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".BinarOnboardingActivity" />
+        <activity android:name=".UserActivity" />
+        <activity android:name=".DialogActivity" />
     </application>
 
 </manifest>

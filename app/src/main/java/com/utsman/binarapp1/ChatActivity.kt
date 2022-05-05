@@ -1,13 +1,13 @@
 package com.utsman.binarapp1
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
-import com.utsman.binarapp1.data.Address
+import com.utsman.binarapp1.bundleActivity.ReceiveBundleActivity
 import com.utsman.binarapp1.data.User
 
 class ChatActivity : AppCompatActivity() {
@@ -16,33 +16,46 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
 
-        /* ini bundle biasa */
+        //ini dari hello world button
+        fromHellowWorldButton()
+
+
+        /* ini nerima bundle biasa dr main activity/ activity sebelumnya */
         val bundle = intent.extras
         val name = bundle?.getString("name")
+        val ageBund = bundle?.getInt("age")
         val textView: TextView = findViewById(R.id.tv_chat)
-        textView.text = name
+        textView.text = name + " " + ageBund.toString()
 
+
+        //ke user activity
         textView.setOnClickListener {
             val intent = Intent(this, UserActivity::class.java)
+            println("textview ke user activity")
+            //cara ngirim lagi bundle ke activity lain
             bundle?.let { intent.putExtras(it) }
             startActivity(intent)
         }
 
-
         /* ini bundle biasa dengan edit text */
         val editTextUser: EditText = findViewById(R.id.edittext_chat_username)
+        val btnBundle: Button = findViewById(R.id.button_bundle)
+
+        //button ok
         val btnOk: Button = findViewById(R.id.btn_ok)
 
-        /*btnOk.setOnClickListener {
-            val user = editTextUser.text.toString()
+        btnBundle.setOnClickListener {
+            //val user = editTextUser.text.toString()
+            val user = User("Fahri", 20)
             val intent = Intent(this, UserActivity::class.java)
             val usernameBundle = bundleOf("user" to user)
             intent.putExtras(usernameBundle)
             startActivity(intent)
-        }*/
+        }
 
 
-        //val user = User("Fahri", 20)
+        val user = User("Fahri", 20)
+
         btnOk.setOnClickListener {
 
             /* ini serializable */
@@ -78,6 +91,7 @@ class ChatActivity : AppCompatActivity() {
             startActivity(intent)*/
 
 
+            //textsend data to implicit intent
             val textSend = editTextUser.text.toString()
             val intent = Intent()
             intent.action = Intent.ACTION_SEND
@@ -93,6 +107,21 @@ class ChatActivity : AppCompatActivity() {
             /* cara baru */
             val sharedIntent = Intent.createChooser(intent, "kirim text")
             startActivity(sharedIntent)
+        }
+    }
+
+    private fun fromHellowWorldButton() {
+        val bundle = intent.extras
+        val name = bundle?.getString(MainActivity.INTENT_KEY)
+        val textView: TextView = findViewById(R.id.tv_helloworld)
+        val age = 25
+        textView.text = "greeting my world\n$name" //+ "umur saya " + age.toString() + " tahun"
+
+        //send to another activity
+        textView.setOnClickListener {
+            val intent = Intent(this, ReceiveBundleActivity::class.java)
+            bundle?.let { intent.putExtras(it) }
+            startActivity(intent)
         }
     }
 
